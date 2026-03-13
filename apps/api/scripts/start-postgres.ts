@@ -10,7 +10,7 @@ const pg = new EmbeddedPostgres({
   databaseDir,
   password: 'postgres',
   persistent: true,
-  port: 5432,
+  port: 5433,
   user: 'postgres',
 });
 
@@ -39,7 +39,7 @@ async function main() {
   console.log('Embedded PostgreSQL is running.');
   console.log(`Data directory: ${databaseDir}`);
   console.log(`Database: ${databaseName}`);
-  console.log('Connection URL: postgresql://postgres:postgres@localhost:5432/aegis_core?schema=public');
+  console.log('Connection URL: postgresql://postgres:postgres@localhost:5433/aegis_core?schema=public');
 }
 
 void main().catch((error) => {
