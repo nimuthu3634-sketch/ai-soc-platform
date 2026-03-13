@@ -5,9 +5,10 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "types": ["node"],
-    "rootDir": "src",
+    "rootDir": ".",
     "outDir": "dist",
     "noEmitOnError": true
   },
-  "include": ["src"]
+  "include": ["src", "scripts", "prisma"],
+  "exclude": ["node_modules", "dist"]
 }
