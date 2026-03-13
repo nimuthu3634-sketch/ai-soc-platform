@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --background: 7 11 18;
+  --background-soft: 11 17 28;
+  --surface: 16 24 39;
+  --surface-elevated: 23 34 53;
+  --surface-muted: 30 43 68;
+  --border: 92 106 131;
+  --text: 248 250 252;
+  --text-soft: 226 232 240;
+  --muted: 148 163 184;
+  --accent: 255 122 26;
+  --accent-soft: 255 178 117;
+  --success: 16 185 129;
+  --warning: 245 158 11;
+  --danger: 244 63 94;
+}
+
+@layer base {
+  html {
+    min-height: 100%;
+    background-color: rgb(var(--background));
+  }
+
+  body {
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at 12% 14%, rgba(var(--accent), 0.19), transparent 0 24%),
+      radial-gradient(circle at 82% 8%, rgba(56, 189, 248, 0.1), transparent 0 18%),
+      radial-gradient(circle at 72% 82%, rgba(var(--accent), 0.08), transparent 0 18%),
+      linear-gradient(180deg, rgba(6, 10, 18, 0.98), rgba(10, 14, 22, 1));
+    color: rgb(var(--text));
+    font-family: 'Manrope', sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  #root {
+    min-height: 100vh;
+    position: relative;
+    isolation: isolate;
+  }
+
+  * {
+    scrollbar-color: rgba(var(--accent), 0.45) rgba(var(--surface), 0.85);
+  }
+
+  *::selection {
+    background: rgba(var(--accent), 0.28);
+    color: rgb(var(--text));
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+}
+
+@layer components {
+  .aegis-app-shell {
+    position: relative;
+  }
+
+  .aegis-app-shell::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+      linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: linear-gradient(180deg, rgba(255, 255, 255, 0.52), transparent 85%);
+    opacity: 0.28;
+  }
+
+  .aegis-panel {
+    @apply relative overflow-hidden rounded-[30px] border shadow-panel backdrop-blur;
+    border-color: rgba(var(--border), 0.28);
+    background:
+      linear-gradient(180deg, rgba(var(--surface-elevated), 0.96), rgba(var(--surface), 0.92));
+  }
+
+  .aegis-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(135deg, rgba(var(--accent), 0.12), transparent 34%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 35%);
+  }
+
+  .aegis-panel > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .aegis-panel-muted {
+    @apply rounded-[24px] border backdrop-blur-sm;
+    border-color: rgba(var(--border), 0.22);
+    background: rgba(var(--surface-muted), 0.54);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  }
+
+  .aegis-kicker {
+    @apply font-mono text-[0.68rem] uppercase tracking-[0.34em];
+    color: rgba(var(--accent-soft), 0.95);
+  }
+
+  .aegis-chip {
+    @apply inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-semibold uppercase;
+    border-color: rgba(var(--border), 0.26);
+    background: rgba(var(--surface-muted), 0.7);
+    color: rgba(var(--text-soft), 0.94);
+    letter-spacing: 0.18em;
+  }
+
+  .aegis-button-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-semibold transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aegis-400/40;
+    background: linear-gradient(135deg, rgba(var(--accent), 1), rgba(255, 155, 74, 0.98));
+    color: rgb(var(--background));
+    box-shadow: 0 18px 40px rgba(var(--accent), 0.24);
+  }
+
+  .aegis-button-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 22px 44px rgba(var(--accent), 0.28);
+  }
+
+  .aegis-button-primary:disabled {
+    transform: none;
+    opacity: 0.72;
+    box-shadow: none;
+  }
+
+  .aegis-button-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl border px-4 py-3 text-sm font-semibold text-slate-100 transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aegis-400/30;
+    border-color: rgba(var(--border), 0.25);
+    background: rgba(var(--surface-muted), 0.62);
+  }
+
+  .aegis-button-secondary:hover {
+    border-color: rgba(var(--accent), 0.34);
+    color: white;
+  }
+
+  .aegis-input {
+    @apply w-full rounded-2xl border px-4 py-3 text-sm text-white outline-none transition duration-200 placeholder:text-slate-500;
+    border-color: rgba(var(--border), 0.26);
+    background: rgba(var(--surface-muted), 0.66);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  }
+
+  .aegis-input:focus {
+    border-color: rgba(var(--accent), 0.7);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.03),
+      0 0 0 4px rgba(var(--accent), 0.12);
+  }
+
+  .aegis-table-shell {
+    @apply overflow-hidden rounded-[24px] border;
+    border-color: rgba(var(--border), 0.22);
+    background: rgba(var(--surface-muted), 0.46);
+  }
+
+  .aegis-table {
+    @apply min-w-full text-left text-sm;
+  }
+
+  .aegis-table thead {
+    background: rgba(255, 255, 255, 0.03);
+    color: rgba(var(--muted), 0.96);
+  }
+
+  .aegis-table th {
+    @apply px-4 py-3 font-semibold;
+  }
+
+  .aegis-table td {
+    @apply px-4 py-4 align-top;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  .aegis-table tbody tr {
+    transition: background-color 0.18s ease;
+  }
+
+  .aegis-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.018);
+  }
+}

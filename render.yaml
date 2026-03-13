@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: aegis-core-api
+    runtime: node
+    rootDir: .
+    buildCommand: npm ci && npm run prisma:generate -w @aegis-core/api && npm run build -w @aegis-core/contracts && npm run build -w @aegis-core/api
+    preDeployCommand: npm run prisma:migrate:deploy -w @aegis-core/api
+    startCommand: npm run start -w @aegis-core/api
+    healthCheckPath: /api/health/ready
+    autoDeployTrigger: checksPass
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: FRONTEND_ORIGINS
+        sync: false
+      - key: TRUST_PROXY
+        value: true
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRES_IN
+        value: 8h
+      - key: JWT_ISSUER
+        value: aegis-core
+      - key: LOG_LEVEL
+        value: info
+      - key: AI_ANALYZER_PROVIDER
+        value: mock
+      - key: AI_ALERT_THRESHOLD
+        value: 80
+      - key: AI_EXTERNAL_SERVICE_URL
+        sync: false
+      - key: AI_EXTERNAL_SERVICE_API_KEY
+        sync: false
+      - key: AI_EXTERNAL_SERVICE_TIMEOUT_MS
+        value: 8000

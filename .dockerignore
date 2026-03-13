@@ -1,0 +1,12 @@
+node_modules
+dist
+coverage
+.git
+.github
+.vercel
+.render
+.railway
+**/.env
+**/.env.local
+**/.env.*.local
+postgres-data
