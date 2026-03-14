@@ -13,6 +13,7 @@
     "prisma:generate": "node scripts/prisma-generate.mjs",
     "prisma:migrate:dev": "prisma migrate dev",
     "prisma:migrate:deploy": "prisma migrate deploy",
+    "prisma:seed": "npm run seed",
     "seed": "tsx prisma/seed.ts"
   },
   "prisma": {

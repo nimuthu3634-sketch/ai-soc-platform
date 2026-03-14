@@ -12,7 +12,7 @@ COPY . .
 
 ARG VITE_API_BASE_URL=http://localhost:4000/api
 ARG VITE_APP_NAME="Aegis Core"
-ARG VITE_LOGO_PATH=/branding/aegiscore-logo.png
+ARG VITE_LOGO_PATH=/branding/aegiscore-logo.svg
 ARG VITE_PROPOSAL_COVER_REFERENCE=docs/branding/proposal-cover.png
 ARG VITE_AI_ANALYSIS_ENABLED=true
 

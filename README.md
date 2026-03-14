@@ -61,7 +61,8 @@ coupling.
 Place the project branding assets at these exact paths:
 
 - `docs/branding/proposal-cover.png`
-- `public/branding/aegiscore-logo.png`
+- `public/branding/aegiscore-logo.svg`
+- `public/branding/aegiscore-mark.svg`
 
 The frontend already references the expected logo path and falls back safely if
 the runtime logo is not available yet.
@@ -191,7 +192,7 @@ Optional frontend env values:
 
 ```env
 VITE_APP_NAME=Aegis Core
-VITE_LOGO_PATH=/branding/aegiscore-logo.png
+VITE_LOGO_PATH=/branding/aegiscore-logo.svg
 VITE_PROPOSAL_COVER_REFERENCE=docs/branding/proposal-cover.png
 VITE_AI_ANALYSIS_ENABLED=true
 ```

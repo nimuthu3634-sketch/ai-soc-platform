@@ -1,7 +1,8 @@
 export const branding = {
   appName: import.meta.env.VITE_APP_NAME || 'Aegis Core',
   tagline: 'AI-Integrated SOC',
-  logoPath: import.meta.env.VITE_LOGO_PATH || '/branding/aegiscore-logo.png',
+  logoPath: import.meta.env.VITE_LOGO_PATH || '/branding/aegiscore-logo.svg',
+  markPath: '/branding/aegiscore-mark.svg',
   proposalCoverReference:
     import.meta.env.VITE_PROPOSAL_COVER_REFERENCE || 'docs/branding/proposal-cover.png',
   accentHex: '#ff7a1a',

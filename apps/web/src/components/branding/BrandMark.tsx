@@ -1,6 +1,4 @@
-import { ShieldCheck } from 'lucide-react';
 import { useState } from 'react';
-
 
 import { branding } from '@/config/branding';
 import { cn } from '@/lib/utils/cn';
@@ -13,51 +11,45 @@ type BrandMarkProps = {
 export function BrandMark({ compact = false, className }: BrandMarkProps) {
   const [hasLogoError, setHasLogoError] = useState(false);
 
+  const activeAssetPath =
+    compact && branding.markPath ? branding.markPath : branding.logoPath;
+
   return (
-    <div className={cn('flex items-center gap-3', className)}>
-      <div
-        className={cn(
-          'relative flex items-center justify-center overflow-hidden border shadow-[0_18px_44px_rgba(0,0,0,0.3)]',
-          compact ? 'h-11 w-11 rounded-[18px]' : 'h-14 w-14 rounded-[22px]',
-        )}
-        style={{
-          background:
-            'linear-gradient(180deg, rgba(17,24,39,0.98), rgba(8,12,20,0.94))',
-          borderColor: 'rgba(255, 122, 26, 0.24)',
-        }}
-      >
-        <span
-          className="absolute inset-[1px] rounded-[inherit]"
-          style={{
-            background:
-              'linear-gradient(160deg, rgba(255,122,26,0.16), rgba(15,23,42,0.18) 45%, rgba(15,23,42,0.82))',
-          }}
-        />
-        {hasLogoError ? (
-          <ShieldCheck
-            className={cn(
-              'relative z-[1] text-aegis-400',
-              compact ? 'h-5 w-5' : 'h-6 w-6',
-            )}
-          />
-        ) : (
-          <img
-            alt="Aegis Core logo"
-            className="relative z-[1] h-full w-full object-cover"
-            onError={() => setHasLogoError(true)}
-            src={branding.logoPath}
-          />
-        )}
-      </div>
-      {!compact ? (
-        <div className="min-w-0">
-          <p className="truncate font-display text-xl font-semibold tracking-[0.04em] text-white">
-            {branding.appName}
-          </p>
-          <p className="mt-1 text-xs uppercase tracking-[0.32em] text-slate-400">
-            {branding.tagline}
-          </p>
+    <div
+      className={cn(
+        compact ? 'flex items-center' : 'flex flex-col items-start gap-2',
+        className,
+      )}
+    >
+      {hasLogoError ? (
+        <div
+          className={cn(
+            'flex items-center justify-center rounded-xl border border-orange-500/25 bg-slate-900/80 text-white shadow-[0_10px_30px_rgba(0,0,0,0.28)]',
+            compact
+              ? 'h-12 min-w-[60px] px-3 text-sm font-bold'
+              : 'h-16 min-w-[90px] px-4 text-base font-bold',
+          )}
+        >
+          AC
         </div>
+      ) : (
+        <img
+          src={activeAssetPath}
+          alt={compact ? 'Aegis Core mark' : 'Aegis Core logo'}
+          onError={() => setHasLogoError(true)}
+          className={cn(
+            'bg-transparent object-contain',
+            compact
+              ? 'h-14 w-auto max-w-[180px]'
+              : 'h-20 w-auto max-w-[340px] drop-shadow-[0_16px_28px_rgba(0,0,0,0.28)]',
+          )}
+        />
+      )}
+
+      {!compact ? (
+        <p className="pl-1 text-xs uppercase tracking-[0.32em] text-slate-400">
+          {branding.tagline}
+        </p>
       ) : null}
     </div>
   );

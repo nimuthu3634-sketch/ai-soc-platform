@@ -1,0 +1,46 @@
+<svg width="1400" height="500" viewBox="0 0 1400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path d="M90 405L280 140" stroke="#F8FAFC" stroke-width="46" />
+    <path
+      d="M355 210L285 305H500L602 405H255"
+      stroke="#FF7A1A"
+      stroke-width="46"
+    />
+    <path d="M670 110V430" stroke="#F8FAFC" stroke-width="10" />
+  </g>
+
+  <g
+    font-family="'Arial Rounded MT Bold', 'Bahnschrift', 'Trebuchet MS', sans-serif"
+    font-weight="700"
+    letter-spacing="4"
+  >
+    <text
+      x="735"
+      y="250"
+      font-size="120"
+      fill="none"
+      paint-order="stroke"
+      stroke="#F8FAFC"
+      stroke-width="8"
+    >
+      AEGIS
+    </text>
+    <text
+      x="735"
+      y="388"
+      font-family="'Arial Black', 'Bahnschrift', sans-serif"
+      font-size="142"
+      fill="#FF7A1A"
+      letter-spacing="6"
+    >
+      CORE
+    </text>
+  </g>
+
+  <g stroke="#F8FAFC" stroke-linecap="round" stroke-width="26">
+    <path d="M1210 390L1244 340" />
+    <path d="M1260 390L1294 340" />
+  </g>
+
+  <circle cx="1332" cy="390" r="12" fill="#FF7A1A" />
+</svg>

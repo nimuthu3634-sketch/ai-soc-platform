@@ -13,7 +13,7 @@ settingsRoutes.get('/profile', authorizeRoles('admin'), (request, response) =>
     organization: 'Aegis Core SOC Lab',
     activeUser: request.user,
     branding: {
-      logoPath: '/branding/aegiscore-logo.png',
+      logoPath: '/branding/aegiscore-logo.svg',
       proposalCoverReference: 'docs/branding/proposal-cover.png',
     },
   }),
