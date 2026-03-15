@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { branding } from '@/config/branding';
 import { cn } from '@/lib/utils/cn';
@@ -13,6 +13,10 @@ export function BrandMark({ compact = false, className }: BrandMarkProps) {
 
   const activeAssetPath =
     compact && branding.markPath ? branding.markPath : branding.logoPath;
+
+  useEffect(() => {
+    setHasLogoError(false);
+  }, [activeAssetPath]);
 
   return (
     <div
@@ -40,7 +44,7 @@ export function BrandMark({ compact = false, className }: BrandMarkProps) {
           className={cn(
             'bg-transparent object-contain',
             compact
-              ? 'h-14 w-auto max-w-[180px]'
+              ? 'h-11 w-11 sm:h-12 sm:w-12'
               : 'h-20 w-auto max-w-[340px] drop-shadow-[0_16px_28px_rgba(0,0,0,0.28)]',
           )}
         />

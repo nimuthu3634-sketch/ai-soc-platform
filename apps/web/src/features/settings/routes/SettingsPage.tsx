@@ -32,8 +32,12 @@ export function SettingsPage() {
               <dd className="mt-1 font-mono text-aegis-300">{user?.role}</dd>
             </div>
             <div className="aegis-panel-muted p-4">
-              <dt className="text-slate-400">Runtime logo asset</dt>
+              <dt className="text-slate-400">Runtime wordmark asset</dt>
               <dd className="mt-1 font-mono text-aegis-300">{branding.logoPath}</dd>
+            </div>
+            <div className="aegis-panel-muted p-4">
+              <dt className="text-slate-400">Compact mark asset</dt>
+              <dd className="mt-1 font-mono text-aegis-300">{branding.markPath}</dd>
             </div>
             <div className="aegis-panel-muted p-4">
               <dt className="text-slate-400">Proposal cover reference</dt>
